@@ -10,13 +10,13 @@ reducers should do 3 things:
 const favouriteQuotesList = (state = [], action) => {
     switch (action.type) {
       case RECEIVE_QUOTES:
-      return [...state, ...action.receiveQuotes]
-      case RECEIVE_FAVOURITE_QUOTES:
-        return [...state, ...action.receiveFavouriteQuotes]
-      case ADD_QUOTE: 
-            return [...state, ...action.addQuote]
-      case DELETE_FAVOURITE_QUOTES:
-        return [...state, action.deleteQuote]
+      return [...state, action.quotes.data ]
+      // case RECEIVE_FAVOURITE_QUOTES:
+      //   return [...state, ...action.receiveFavouriteQuotes]
+      // case ADD_QUOTE: 
+      //       return [...state, ...action.addQuote]
+      // case DELETE_FAVOURITE_QUOTES:
+      //   return [...state, action.deleteQuote]
       default:
         return state
     }

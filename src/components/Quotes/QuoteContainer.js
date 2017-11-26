@@ -5,17 +5,13 @@ import React from 'react'
 
 class QuoteContainer extends React.Component {
 
+    constructor(props){
+       super(props)
+    }
+
 
     componentDidMount() {
-
-        fetch('http://loremricksum.com/api/?paragraphs=5&quotes=1')
-        .then(response => response.json())
-        .then(quotes => {
-            console.log('parsed data ', quotes)
-            this.props.dispatch(actions.RECEIVE_FAVOURITE_QUOTES(quotes.data))
-        }).catch((err)=> {
-            console.log(err)
-        })
+        this.props.dispatch(actions.getQuotes)
     }
   
     render() {
