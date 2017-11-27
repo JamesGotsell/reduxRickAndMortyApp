@@ -8,27 +8,11 @@ export const ADD_QUOTE = 'ADD_QUOTE'
 
 export const DELETE_FAVOURITE_QUOTES = 'DELETE_FAVOURITE_QUOTES'
 
-const ROOT_URL = 'http://loremricksum.com/api/?paragraphs=5&quotes=1';
+const ROOT_URL = 'http://loremricksum.com/api/?paragraphs=1&quotes=1';
 
 
 export const getQuotes = dispatch => {
-  // return dispatch => {
     let quotes;
-  //   axios.get(ROOT_URL)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //         console.log('parsed data ', data)
-  //         quotes = data
-  //         return quotes
-  //     }).catch((err)=> {
-  //     console.log(err)
-  //   })
-  //   dispatch(receiveQuotes(quotes));
-  // const request = axios({
-  //   method: 'GET',
-  //   url: `${ROOT_URL}`,
-  //   headers: []
-  // });
     fetch(ROOT_URL)
     .then(response => response.json())
     .then(data => {

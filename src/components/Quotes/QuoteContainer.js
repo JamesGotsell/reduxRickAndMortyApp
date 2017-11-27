@@ -2,11 +2,14 @@ import { connect } from 'react-redux'
 
 import * as actions from '../../actions'
 import React from 'react'
+ /* eslint-disable-line no-lone-blocks */
+import QuoteList from './QuoteList'
 
 class QuoteContainer extends React.Component {
 
     constructor(props){
        super(props)
+       console.log(props)
     }
 
 
@@ -15,30 +18,15 @@ class QuoteContainer extends React.Component {
     }
   
     render() {
+      const { quotes } = this.props
       return (
-        <div>
-          {/* { this.props.quotes.data.map( (quote, i) => (
-            <div className="row" key={i}>
-           
-              <div className="col-md-8">
-                <p>{quote}</p>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => this.props.dispatch(actions.ADD_QUOTE(quote))}
-                >
-                  Buy me!
-                </button>
-                <hr />
-              </div>
-            </div> 
-          ))} */}
-        </div>
+        <QuoteList quotes={quotes} />
       )
     }
   }
 
   const mapStateToProps = state => ({
-    quotes: state.quotes
+    quotes: state.favoritesQuotesList
     
   })
 
