@@ -13,14 +13,14 @@ class QuoteContainer extends React.Component {
     }
 
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.dispatch(actions.getQuotes)
     }
   
     render() {
       const { quotes } = this.props
       return (
-        <QuoteList quotes={quotes} />
+        <QuoteList key={1} quotes={quotes} />
       )
     }
   }
