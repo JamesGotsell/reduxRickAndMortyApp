@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 
-import favoritesQuotesList from './favoritesQuotesList';
+import quotesList from './quotesList';
+import favoriteQuotes from './favoriteQuotes'
 const reducers = combineReducers({
-    favoritesQuotesList 
+   quotesList,
+   favoriteQuotes 
 })
 
 export default reducers
