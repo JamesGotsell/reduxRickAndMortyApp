@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 
 export const RECEIVE_QUOTES = 'RECEIVE_QUOTES'
 
@@ -30,14 +30,19 @@ export const receiveQuotes = quotes => ({
 })
 
 
-export const receiveFavouriteQuotes = quotes => ({
-  type: RECEIVE_FAVOURITE_QUOTES,
+export const receivefavoriteQuotes = quotes => ({
+  type:RECEIVE_FAVOURITE_QUOTES,
   quotes
 })
 
-export const addQuote = quote => ({
+export const receiveFavouriteQuotes = dispatch => ({
+  //  dispatch(receivefavoriteQuotes());
+})
+
+export const addQuote = (quote,id) => ({
     type: ADD_QUOTE,
-    quote
+    quote,
+    id
 })
 
 export const deleteQuote = quote => ({

@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 
+import { connect } from 'react-redux'
 
-const Button = styled.a`
+import * as actions from '../../actions'
+
+const Button = styled.button`
 position: relative;
 display: inline-block;
 height: ${props => props.outline ? props.size : props.size/2}px;
@@ -39,13 +42,12 @@ class QuoteListItem extends Component {
                   {
                       quotes[0].map( (quote, i ) => {
                       return (  
-                                <li>
-                                      <p>{quote}</p>
-                                      <Button
-                                      
-                                      > Add Quote</Button>
+                                <li key={i+1}>
+                                    <p>{quote}</p>
+                                    <Button 
+                                    onClick={ () => { this.props.dispatch(actions.addQuote(quote, i+1)) }}> Add Quote</Button>
                                  </li>
-                               )
+                        )
                       }) 
 
                   }
@@ -55,4 +57,10 @@ class QuoteListItem extends Component {
   }   
 }
 
-export default QuoteListItem
+const mapDispatchToProps = dispatch => ({
+  dispatch
+})
+
+export default connect(
+  mapDispatchToProps
+)(QuoteListItem)
