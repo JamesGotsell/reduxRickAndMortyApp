@@ -9,8 +9,9 @@ const Root = ({store}) => (
     <Router>
     <Provider store={store}>
         <Switch>
-        <Route path="/" component= {App} />
-        <Route component={NotFound} />
+            {/* <Route path="/" component={App} store={store} />
+            <Route component={NotFound} /> */}
+            <App store={store}/>
         </Switch>
     </Provider>
     </Router>
