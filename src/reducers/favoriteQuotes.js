@@ -7,8 +7,8 @@ import {
 
 const favoriteQuotes = (state = [], action) => {
   switch (action.type) {
-    case RECEIVE_FAVOURITE_QUOTES:
-      return [...state, action.receiveFavouriteQuotes]
+    // case RECEIVE_FAVOURITE_QUOTES:
+    //   return [...state, action.receiveFavouriteQuotes]
     case ADD_QUOTE:
       {
         return [...state, {
