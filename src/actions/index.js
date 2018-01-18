@@ -43,7 +43,8 @@ export const addQuote = (quote, id) => ({
   id
 })
 
-export const deleteQuote = quote => ({
+export const deleteQuote = (quote, id) => ({
   type: DELETE_FAVOURITE_QUOTES,
-  quote
+  quote,
+  id
 })

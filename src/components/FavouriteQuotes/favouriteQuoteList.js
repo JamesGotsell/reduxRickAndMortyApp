@@ -1,17 +1,17 @@
 import React from 'react'
-import favouriteQuoteListItem from './favouriteQuoteListItem';
+import FavouriteQuoteListItem from './FavouriteQuoteListItem';
 import configureStore from '../../store/configureStore';
 
-const favouriteQuoteList = ({quotes=[]}) => {
+const FavouriteQuoteList = ({quotes}) => {
 
             console.log(quotes)
             if (quotes.length > 0 ) {
             return (
-                 <favouriteQuoteListItem quotes={quotes}  />
+                 <FavouriteQuoteListItem quotes={quotes}  />
                 )
          } else {
                return null;
         }
 }
 
-export default favouriteQuoteList
+export default FavouriteQuoteList

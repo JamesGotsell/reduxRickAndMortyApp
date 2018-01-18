@@ -7,8 +7,6 @@ import {
 
 const favoriteQuotes = (state = [], action) => {
   switch (action.type) {
-    // case RECEIVE_FAVOURITE_QUOTES:
-    //   return [...state, action.receiveFavouriteQuotes]
     case ADD_QUOTE:
       {
         return [...state, {
@@ -16,8 +14,9 @@ const favoriteQuotes = (state = [], action) => {
           id: action.id
         }]
       }
-      // case DELETE_FAVOURITE_QUOTES:
-      //   return [...state, action.deleteQuote]
+      case DELETE_FAVOURITE_QUOTES:
+        let quote = action;
+        return state.filter(quote => quote.id !== action.id)
     default:
       return state
   }

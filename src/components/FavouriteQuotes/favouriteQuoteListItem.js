@@ -3,29 +3,26 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions'
 
 
-class favouriteQuoteListItem extends Component {
+class FavouriteQuoteListItem extends Component {
 
   constructor(props) {    
     super(props)
+    console.log(props)
+    
+    this.deleteQuote = this.deleteQuote.bind(this)
+  }
+
+  deleteQuote (qoute, id) {
+     this.props.dispatch(actions.deleteQuote(qoute, id))
   }
 
   render(){
-      const { quotes}  = this.props;
+      const { qoute , id}  = this.props;
       return (
-           <div className="quote-item">
-              <ul>
-                  {
-                      quotes.map( (quotes, i ) => {
-                      return (  
-                                <li key={i+1}>
-                                    <p key={quotes.id}>{quotes.quotes}</p>
-                                 </li>
-                        )
-                       
-                      }) 
-
-                  }
-               </ul>     
+          <div key={id}>
+            <p>{qoute}</p>
+            <pre>{id}</pre>
+            <button onClick={() => { this.deleteQuote(qoute, id)} }>delete Quote</button>
            </div>
      ) 
   }   
@@ -37,4 +34,4 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapDispatchToProps
-)(favouriteQuoteListItem)
+)(FavouriteQuoteListItem)

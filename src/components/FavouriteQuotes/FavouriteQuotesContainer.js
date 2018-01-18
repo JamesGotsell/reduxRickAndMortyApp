@@ -2,9 +2,10 @@ import { connect } from 'react-redux'
 
 import * as actions from '../../actions'
 import React from 'react'
-import favouriteQuoteList from './favouriteQuoteList'
+ import FavouriteQuoteList from './FavouriteQuoteList'
+import FavouriteQuoteListItem from './FavouriteQuoteListItem';
  /* eslint-disable-line no-lone-blocks */
-// import FavouriteQuoteList from './QuoteList'
+
 
 class FavouriteQuoteContainer extends React.Component {
     constructor(props){
@@ -13,10 +14,14 @@ class FavouriteQuoteContainer extends React.Component {
     } 
 
     render() {
-      const { favouritequotes } = this.props
-      console.log(favouritequotes)
+       const { favouritequotes } = this.props
+      //console.log(favouritequotes)
       return (  
-        <favouriteQuoteList key={1} quotes={favouritequotes} />
+          
+        favouritequotes.map((favouritequote , i ) => {
+              return <FavouriteQuoteListItem  key={i} qoute={favouritequote .quotes} id={favouritequote.id} />
+            })
+          
       )
     }
   }
